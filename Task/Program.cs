@@ -21,13 +21,29 @@ int CountElements(string[] array)
         if (array[i].Length <= 3)
         {
             result++;
-        }    
+        }
     }
     return result;
 }
 
+string[] FindNewArray(string[] array, int size)
+{
+    string[] newArray = new string[size];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            newArray[j] = array[i];
+            j++;
+        }
+    }
+    return newArray;
+}
 
-
-
-string[] myArray = GetArray("Введите строки, разделяя их запятой: ");
+string[] myArray = GetArray("Введите строки, разделяя их запятой и пробелом: ");
 int sizeNewArray = CountElements(myArray);
+string[] newArray = FindNewArray(myArray, sizeNewArray);
+System.Console.WriteLine();
+System.Console.Write("Строки, длина которых меньше или равна 3 символа: ");
+PrintArray(newArray);
