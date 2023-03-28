@@ -13,8 +13,21 @@ void PrintArray(string[] array)
     System.Console.WriteLine("[" + string.Join(",", array) + "]");
 }
 
+int CountElements(string[] array)
+{
+    int result = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            result++;
+        }    
+    }
+    return result;
+}
 
 
 
 
 string[] myArray = GetArray("Введите строки, разделяя их запятой: ");
+int sizeNewArray = CountElements(myArray);
